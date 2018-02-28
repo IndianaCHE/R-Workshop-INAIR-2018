@@ -1,4 +1,10 @@
-# Tools for `R` Workshop at INAIR 2018
+# Tools and Data for `R` Workshop at INAIR 2018
+
+This repository holds the necessary code and data for Indiana CHE's workshop,
+*Reporting with R: It’s Easier Than You Think*, at [INAIR
+2018](http://inair.org/inair-conference-2017).
+
+**This document is currently a DRAFT**, and we encourage you to check back before the conference to make sure that you have the latest version.
 
 ## Before you show up
 
