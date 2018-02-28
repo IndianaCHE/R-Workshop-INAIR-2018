@@ -20,7 +20,7 @@ package_list <- c(
 for (package in package_list){
   print(paste("Installing", package))
   if (!require(package, character.only = TRUE)){
-    install_package(packages)
+    install.packages(package)
   }
   library(package, character.only = TRUE)
 }
