@@ -4,7 +4,10 @@ This repository holds the necessary code and data for Indiana CHE's workshop,
 *Reporting with R: It’s Easier Than You Think*, at [INAIR
 2018](http://inair.org/inair-conference-2017).
 
+## Check back on Monday, March 19
+
 **This document is currently a DRAFT**, and we encourage you to check back before the conference to make sure that you have the latest version.
+We want you to have the best resources possible, so please check back. Right now the things that you can and should do are install R, and Rstudio
 
 ## Before you show up
 
