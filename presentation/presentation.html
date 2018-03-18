@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Reporting With R</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Alex Axthelm" />
+    <meta name="date" content="2018-03-22" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Reporting With <code>R</code>
+## It’s easier than you think
+### Alex Axthelm
+### March 22, 2018
+
+---
+
+
+
+
+# Why use R
+
+- Reproducible
+
+--
+
+- Transformable
+
+--
+
+- Easier than you think
+
+---
+# About me
+
+- Alex Axthelm
+- Data Analyst at Indiana Commsission for Higher Education
+- Masters Student in Data Science at IUB
+- Worked with `R` regularly for ~5 years
+
+---
+layout: true
+class: inverse
+
+# Setting up your workspace
+
+---
+## Opening RStudio
+
+- RStudio Layout
+- Navigating Multi-panes
+- Source vs. Console
+
+---
+## RStudio Settings -&gt; General 
+
+I have strong opinons about best practices, based on experience.
+
+You are free to ignore the settings I suggest here, but all of these are designed to make your life easier.
+
+From the menu bar: `Tools` -&gt; `Global Options`
+
+- **UNCHECK** Re-use idle sessions for project links
+- **UNCHECK** Restore .RData into workspace at startup
+  -- Save workspace to .RData on exit: **SET TO NEVER**
+
+---
+## RStudio Settings -&gt; Code
+
+### Editing
+- **UNCHECK** Soft-wrap R source files
+
+### Display
+- **CHECK** Show margin
+- **CHECK** Show indent guides
+
+---
+## `Lint`ing
+
+&gt; A linter or lint refers to tools that analyze source code to flag programming errors, bugs, stylistic errors, and suspicious constructs.
+&gt; 
+&gt; --https://en.wikipedia.org/wiki/Lint_(software)
+
+We will use a package called `lintr` to help warn us of errors, and encourage good habits while coding.
+
+To Enable `lintr`:
+
+`Tools` -&gt; `Global Options` -&gt; `Code` -&gt; `Diagnostics`
+
+---
+## Good practices to follow:
+
+- Clearly defined, but succinct variable names
+- lines 80 (maybe 120) characters or shorter
+- Use indentation to show logical progression
+
+---
+layout: false
+
+# Our goal today
+
+- Start with some "raw" data
+  - (in Excel, no less)
+- Transform it to extract useful information
+- Make some nice plots
+- Wrap everything into a human-readable report
+- Keep our sanity throughout
+
+---
+# Our data set
+
+Source Data for ICHE's "College Readiness Report" ([http://in.gov/che/2489.htm](http://in.gov/che/2489.htm))
+    </textarea>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

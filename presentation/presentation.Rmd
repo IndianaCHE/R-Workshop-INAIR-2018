@@ -1,0 +1,112 @@
+---
+title: "Reporting With `R`"
+subtitle: "It's easier than you think"
+author: "Alex Axthelm"
+date: "March 22, 2018"
+output:
+  xaringan::moon_reader:
+    #css: ["metropolis", "metropolis-fonts", "hygge"]
+    lib_dir: libs
+    chakra: libs/remark-latest.min.js
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+# Why use R
+
+- Reproducible
+
+--
+
+- Transformable
+
+--
+
+- Easier than you think
+
+---
+# About me
+
+- Alex Axthelm
+- Data Analyst at Indiana Commsission for Higher Education
+- Masters Student in Data Science at IUB
+- Worked with `R` regularly for ~5 years
+
+---
+layout: true
+class: inverse
+
+# Setting up your workspace
+
+---
+## Opening RStudio
+
+- RStudio Layout
+- Navigating Multi-panes
+- Source vs. Console
+
+---
+## RStudio Settings -> General 
+
+I have strong opinons about best practices, based on experience.
+
+You are free to ignore the settings I suggest here, but all of these are designed to make your life easier.
+
+From the menu bar: `Tools` -> `Global Options`
+
+- **UNCHECK** Re-use idle sessions for project links
+- **UNCHECK** Restore .RData into workspace at startup
+  -- Save workspace to .RData on exit: **SET TO NEVER**
+
+---
+## RStudio Settings -> Code
+
+### Editing
+- **UNCHECK** Soft-wrap R source files
+
+### Display
+- **CHECK** Show margin
+- **CHECK** Show indent guides
+
+---
+## `Lint`ing
+
+> A linter or lint refers to tools that analyze source code to flag programming errors, bugs, stylistic errors, and suspicious constructs.
+> 
+> --https://en.wikipedia.org/wiki/Lint_(software)
+
+We will use a package called `lintr` to help warn us of errors, and encourage good habits while coding.
+
+To Enable `lintr`:
+
+`Tools` -> `Global Options` -> `Code` -> `Diagnostics`
+
+---
+## Good practices to follow:
+
+- Clearly defined, but succinct variable names
+- lines 80 (maybe 120) characters or shorter
+- Use indentation to show logical progression
+
+---
+layout: false
+
+# Our goal today
+
+- Start with some "raw" data
+  - (in Excel, no less)
+- Transform it to extract useful information
+- Make some nice plots
+- Wrap everything into a human-readable report
+- Keep our sanity throughout
+
+---
+# Our data set
+
+Source Data for ICHE's "College Readiness Report" ([http://in.gov/che/2489.htm](http://in.gov/che/2489.htm))
