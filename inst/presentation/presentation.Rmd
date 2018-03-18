@@ -5,7 +5,7 @@ author: "Alex Axthelm"
 date: "March 22, 2018"
 output:
   xaringan::moon_reader:
-    #css: ["metropolis", "metropolis-fonts", "hygge"]
+    css: ["default", "default-fonts", "hygge"]
     lib_dir: libs
     chakra: libs/remark-latest.min.js
     nature:
@@ -36,15 +36,18 @@ options(htmltools.dir.version = FALSE)
 - Alex Axthelm
 - Data Analyst at Indiana Commsission for Higher Education
 - Masters Student in Data Science at IUB
-- Worked with `R` regularly for ~5 years
+- Works with `R` regularly  (~5 years experience)
 
 ---
 layout: true
-class: inverse
 
 # Setting up your workspace
 
 ---
+class: inverse
+.center[.Large[Before we get started, Let's get ready.]]
+---
+
 ## Opening RStudio
 
 - RStudio Layout
@@ -58,6 +61,12 @@ I have strong opinons about best practices, based on experience.
 
 You are free to ignore the settings I suggest here, but all of these are designed to make your life easier.
 
+As we go along, there will also be opinons such as:
+
+.full-width[.content-box-purple[Use indentation to show logical progression]]
+
+---
+
 From the menu bar: `Tools` -> `Global Options`
 
 - **UNCHECK** Re-use idle sessions for project links
@@ -70,8 +79,16 @@ From the menu bar: `Tools` -> `Global Options`
 ### Editing
 - **UNCHECK** Soft-wrap R source files
 
+---
+## RStudio Settings -> Code
+
 ### Display
 - **CHECK** Show margin
+
+.full-width[.content-box-purple[
+Making your lines only 80 characters wide means you don't need to scroll to the side
+]]
+
 - **CHECK** Show indent guides
 
 ---
@@ -85,14 +102,12 @@ We will use a package called `lintr` to help warn us of errors, and encourage go
 
 To Enable `lintr`:
 
-`Tools` -> `Global Options` -> `Code` -> `Diagnostics`
+.content-box-green[`Tools` -> `Global Options` -> `Code` -> `Diagnostics`]
 
 ---
 ## Good practices to follow:
 
 - Clearly defined, but succinct variable names
-- lines 80 (maybe 120) characters or shorter
-- Use indentation to show logical progression
 
 ---
 layout: false
@@ -105,6 +120,41 @@ layout: false
 - Make some nice plots
 - Wrap everything into a human-readable report
 - Keep our sanity throughout
+---
+layout: true
+
+# R basics
+---
+class: inverse
+.center[.Large[Let's explore some of the basics of `R`.]]
+---
+## Assigning Objects
+
+`R` is an untyped language, with no initialization required.
+
+```{r}
+x <- 10
+y <- 20
+x + y
+```
+--
+```{r}
+z <- x + y
+```
+--
+```{r}
+z
+print(z)
+```
+---
+layout: true
+
+# Importing
+
+---
+class: inverse
+.center[.Large[Now we're really on our way.]]
+---
 
 ---
 # Our data set

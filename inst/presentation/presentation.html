@@ -7,6 +7,7 @@
     <meta name="date" content="2018-03-22" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+    <link href="libs/remark-css/hygge.css" rel="stylesheet" />
   </head>
   <body>
     <textarea id="source">
@@ -40,15 +41,18 @@ class: center, middle, inverse, title-slide
 - Alex Axthelm
 - Data Analyst at Indiana Commsission for Higher Education
 - Masters Student in Data Science at IUB
-- Worked with `R` regularly for ~5 years
+- Works with `R` regularly  (~5 years experience)
 
 ---
 layout: true
-class: inverse
 
 # Setting up your workspace
 
 ---
+class: inverse
+.center[.Large[Before we get started, Let's get ready.]]
+---
+
 ## Opening RStudio
 
 - RStudio Layout
@@ -62,6 +66,12 @@ I have strong opinons about best practices, based on experience.
 
 You are free to ignore the settings I suggest here, but all of these are designed to make your life easier.
 
+As we go along, there will also be opinons such as:
+
+.full-width[.content-box-purple[Use indentation to show logical progression]]
+
+---
+
 From the menu bar: `Tools` -&gt; `Global Options`
 
 - **UNCHECK** Re-use idle sessions for project links
@@ -74,8 +84,16 @@ From the menu bar: `Tools` -&gt; `Global Options`
 ### Editing
 - **UNCHECK** Soft-wrap R source files
 
+---
+## RStudio Settings -&gt; Code
+
 ### Display
 - **CHECK** Show margin
+
+.full-width[.content-box-purple[
+Making your lines only 80 characters wide means you don't need to scroll to the side
+]]
+
 - **CHECK** Show indent guides
 
 ---
@@ -89,14 +107,12 @@ We will use a package called `lintr` to help warn us of errors, and encourage go
 
 To Enable `lintr`:
 
-`Tools` -&gt; `Global Options` -&gt; `Code` -&gt; `Diagnostics`
+.content-box-green[`Tools` -&gt; `Global Options` -&gt; `Code` -&gt; `Diagnostics`]
 
 ---
 ## Good practices to follow:
 
 - Clearly defined, but succinct variable names
-- lines 80 (maybe 120) characters or shorter
-- Use indentation to show logical progression
 
 ---
 layout: false
@@ -109,6 +125,59 @@ layout: false
 - Make some nice plots
 - Wrap everything into a human-readable report
 - Keep our sanity throughout
+---
+layout: true
+
+# R basics
+---
+class: inverse
+.center[.Large[Let's explore some of the basics of `R`.]]
+---
+## Assigning Objects
+
+`R` is an untyped language, with no initialization required.
+
+
+```r
+x &lt;- 10
+y &lt;- 20
+x + y
+```
+
+```
+## [1] 30
+```
+--
+
+```r
+z &lt;- x + y
+```
+--
+
+```r
+z
+```
+
+```
+## [1] 30
+```
+
+```r
+print(z)
+```
+
+```
+## [1] 30
+```
+---
+layout: true
+
+# Importing
+
+---
+class: inverse
+.center[.Large[Now we're really on our way.]]
+---
 
 ---
 # Our data set
