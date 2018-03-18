@@ -19,3 +19,5 @@ In order to make the best use of our time at the workshop, I would appreciate it
 * To install the necessary packages: navigate to the folder for this project (that you unzipped earlier), and open `install_packages.R`. This will automatically check for any missing packages that we will be using, and install them as needed. You may see some information scrolling by. Don't worry, you probably don't need it. The script will let you know when it's all done.
 
 Overall, this process should take less than an hour. If you have any questions or difficulties, please reach out to the workshop presenter, [Alex Axthelm](mailto:aaxthelm@che.in.gov).
+
+Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
