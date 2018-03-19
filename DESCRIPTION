@@ -18,4 +18,5 @@ Imports: tidyverse,
     lintr,
     devtools,
     ggridges,
-    stringr
+    stringr,
+    writexl
