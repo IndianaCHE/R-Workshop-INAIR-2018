@@ -41,42 +41,41 @@ options(htmltools.dir.version = FALSE)
 ---
 layout: true
 
-# Setting up your workspace
-
+# .grey[Setup: ]
 ---
 class: inverse
 .center[.Large[Before we get started, Let's get ready.]]
 ---
-
-## Opening RStudio
+Opening RStudio
 
 - RStudio Layout
 - Navigating Multi-panes
 - Source vs. Console
 
 ---
-## RStudio Settings -> General 
+Suggested Practices
 
 I have strong opinons about best practices, based on experience.
 
 You are free to ignore the settings I suggest here, but all of these are designed to make your life easier.
 
-As we go along, there will also be opinons such as:
+As we go along, there will also be suggested practices such as:
 
 .full-width[.content-box-purple[Use indentation to show logical progression]]
 
 ---
+RStudio Settings 
 
-From the menu bar: `Tools` -> `Global Options`
+### General 
+
+.content-box-green[From the menu bar: `Tools` -> `Global Options`]
 
 - **UNCHECK** Re-use idle sessions for project links
 - **UNCHECK** Restore .RData into workspace at startup
   -- Save workspace to .RData on exit: **SET TO NEVER**
 
----
-## RStudio Settings -> Code
+.content-box-green[RStudio Settings -> Code]
 
-### Editing
 - **UNCHECK** Soft-wrap R source files
 
 ---
@@ -92,7 +91,7 @@ Making your lines only 80 characters wide means you don't need to scroll to the 
 - **CHECK** Show indent guides
 
 ---
-## `Lint`ing
+ `Lint`ing
 
 > A linter or lint refers to tools that analyze source code to flag programming errors, bugs, stylistic errors, and suspicious constructs.
 > 
@@ -104,15 +103,10 @@ To Enable `lintr`:
 
 .content-box-green[`Tools` -> `Global Options` -> `Code` -> `Diagnostics`]
 
----
-## Good practices to follow:
-
 - Clearly defined, but succinct variable names
 
 ---
-layout: false
-
-# Our goal today
+Our goal today
 
 - Start with some "raw" data
   - (in Excel, no less)
@@ -121,14 +115,20 @@ layout: false
 - Wrap everything into a human-readable report
 - Keep our sanity throughout
 ---
-layout: true
+Projects
 
-# R basics
+- Start a new RStudio Project
+  - New Directory
+  - in console: `RWorkshopINAIR2018::copy_cr_data()`
+    - This should copy an excel file to your directory
+
+---
+# .grey[R basics: ]
 ---
 class: inverse
-.center[.Large[Let's explore some of the basics of `R`.]]
+.center[.Large[Let's explore some of the fundamental ideas that we will use in `R`.]]
 ---
-## Assigning Objects
+Assigning Objects
 
 `R` is an untyped language, with no initialization required.
 
@@ -144,19 +144,139 @@ z <- x + y
 --
 ```{r}
 z
+
+```
+--
+```{r}
 print(z)
 ```
 ---
+Object Types
+
+`R` objects can be assigned objects of different types
+
+```{r}
+x <- 10L # integer
+print(c(x, class(x)))
+```
+--
+```{r}
+y <- 9.75 # numeric (floating-point)
+print(c(y, class(y)))
+```
+--
+```{r}
+z <- "ten" # string
+print(c(z, class(z)))
+```
+---
+objects can interact
+
+```{r}
+print(c(x, y, z)) # still using same values
+```
+--
+```{r, error = TRUE}
+a <- x + y # Can add int and float
+print(c(a, class(a)))
+```
+--
+```{r, error = TRUE}
+b <- x + z # cannot add numeric and character
+```
+---
+Functions
+
+The basic syntax for using functions is
+```r
+value <- function(argument1, argument2, ...)
+```
+```{r}
+union(x, y)
+sqrt(100 + 21)
+union(y, sqrt(100 + 21))
+```
+---
+Named Arguments
+
+Arguments are matched by name, then fall back on position
+
+```{r, error = TRUE}
+a <- lm(formula = wt ~ qsec, data = mtcars)
+b <- lm(data = mtcars, formula = wt ~ qsec)
+c <- lm(wt ~ qsec, mtcars)
+identical(a, b)
+identical(b, c)
+```
+--
+```{r, error = TRUE}
+lm(mtcars, wt ~ qsec)
+```
+---
+Help!
+
+to find information on a function, you can use `?<function>`
+
+```r
+?lm
+```
+
+```{r, echo = FALSE}
+knitr::include_graphics("images/RHelp.PNG")
+```
+
+---
+Putting things together
+
+We can assemble objects into vectors using the `c() and list()` functions
+
+```{r}
+c(2, 5, 22.76)
+```
+--
+```{r}
+c(4, 5L, TRUE)
+```
+--
+```{r}
+c("word", 1.3, 2L, FALSE)
+```
+.full-width[.content-box-purple[character > numeric > integer > logical]]
+
+---
+Vectors vs Lists
+--
+```{r}
+c("word", 1.3, 2L, FALSE)
+```
+--
+```{r}
+list("word", 1.3, 2L, FALSE)
+```
+
+
+---
+Sequences
+
+Create sequences using `seq()` or `:`
+
+```{r}
+1:12
+seq(1, 12)
+seq(from = 1, to = 12)
+seq(from = 1, to = 12, by = 3)
+```
+
+---
 layout: true
 
-# Importing
-
+# .grey[Importing: ]
 ---
 class: inverse
 .center[.Large[Now we're really on our way.]]
 ---
 
 ---
-# Our data set
+Our data set
 
 Source Data for ICHE's "College Readiness Report" ([http://in.gov/che/2489.htm](http://in.gov/che/2489.htm))
