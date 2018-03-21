@@ -74,22 +74,23 @@ RStudio Settings
 - **UNCHECK** Restore .RData into workspace at startup
   -- Save workspace to .RData on exit: **SET TO NEVER**
 
+.content-box-purple[This prevents you from loading old work that you don't remember]
+
+---
+
 .content-box-green[RStudio Settings -> Code]
 
 - **UNCHECK** Soft-wrap R source files
 
----
-## RStudio Settings -> Code
+### Code -> Display
 
-### Display
 - **CHECK** Show margin
 
-.full-width[.content-box-purple[
-Making your lines only 80 characters wide means you don't need to scroll to the side
-]]
+.content-box-purple[Make lines 80 characters wide so you don't need to scroll to the side]
 
 - **CHECK** Show indent guides
 
+.content-box-purple[Use indentation to show logical progression]
 ---
  `Lint`ing
 
@@ -101,9 +102,7 @@ We will use a package called `lintr` to help warn us of errors, and encourage go
 
 To Enable `lintr`:
 
-.content-box-green[`Tools` -> `Global Options` -> `Code` -> `Diagnostics`]
-
-- Clearly defined, but succinct variable names
+.content-box-purple[`Tools` -> `Global Options` -> `Code` -> `Diagnostics`]
 
 ---
 Our goal today
@@ -122,7 +121,12 @@ Projects
   - in console: `RWorkshopINAIR2018::copy_cr_data()`
     - This should copy an excel file to your directory
 
+.content-box-purple[
+Start all new work in its own project directory, to prevent work from one project affecting another.
+]
+
 ---
+layout: true
 # .grey[R basics: ]
 ---
 class: inverse
@@ -203,14 +207,14 @@ Arguments are matched by name, then fall back on position
 
 ```{r, error = TRUE}
 a <- lm(formula = wt ~ qsec, data = mtcars)
-b <- lm(data = mtcars, formula = wt ~ qsec)
-c <- lm(wt ~ qsec, mtcars)
+b <- lm(data = mtcars, formula = wt ~ qsec) # args reversed
+c <- lm(wt ~ qsec, mtcars) # in default order
 identical(a, b)
 identical(b, c)
 ```
 --
 ```{r, error = TRUE}
-lm(mtcars, wt ~ qsec)
+lm(mtcars, wt ~ qsec) # match by position, reversed
 ```
 ---
 Help!
@@ -274,9 +278,40 @@ layout: true
 ---
 class: inverse
 .center[.Large[Now we're really on our way.]]
----
 
 ---
 Our data set
 
 Source Data for ICHE's "College Readiness Report" ([http://in.gov/che/2489.htm](http://in.gov/che/2489.htm))
+
+.content-box-green[Take a few minutes to explore the Excel file]
+---
+Starting a script
+
+We will start a new a analysis script, and load the tidyverse
+
+---
+`tidyverse`
+
+```{r, cache = FALSE}
+library("tidyverse")
+```
+
+Tidyverse contains a lot of useful functions that make working in R a lot easier.
+
+.content-box-purple[Most of my scripts start with `library("tidyverse")`]
+
+---
+`read_xlsx`
+
+The workhorse for our importing is going to be `read_xlsx()`, from the `readxl` package
+
+```{r, cache = FALSE}
+library("readxl")
+```
+
+```r
+read_xlsx(path, sheet = NULL, range = NULL, col_names = TRUE,
+  col_types = NULL, na = "", trim_ws = TRUE, skip = 0, n_max = Inf,
+  guess_max = min(1000, n_max))
+```
